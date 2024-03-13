@@ -1,6 +1,7 @@
 package kz.runtime.jpa;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.*;
 
@@ -33,11 +34,20 @@ public class mainCreateCategory {
         addCategory(category, characteristics);
     }
 
-    public static void ioProduct() {
+    public static void ioProduct() throws IOException {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
         System.out.println("Введите название товара: ");
+        String product = bufferedReader.readLine();
+
+        System.out.println("Введите цену: ");
+        String price = bufferedReader.readLine();
+
+        System.out.println("Выберите категорию: ");
+        // showCategories();
+        System.out.println("Опишите характеристики");
+        // в общую таблицу
     }
 
 
