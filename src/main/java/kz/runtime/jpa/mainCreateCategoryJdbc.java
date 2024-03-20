@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class mainCreateCategory {
+public class mainCreateCategoryJdbc {
     static Connection connection;
 
     public static void main(String[] args) throws Exception {
