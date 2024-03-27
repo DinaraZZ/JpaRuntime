@@ -40,7 +40,7 @@ etc.
 в стандарте jpa для конфигурации параметров подключения и до параметров файл - "persistance.xml".
 обз включен в итоговую сборку в папке "META-INF"
 
-File - ProjectStructure - Facets - +
+File - ProjectStructure - Facets - + (jpa, jpa configuration description, persistence.xml)
 Переместить папку в ресурсес
 
 каждый объект entityManager облад своим локальным кэшем в котором сохр сущности с котор он взаимод.
@@ -48,3 +48,21 @@ File - ProjectStructure - Facets - +
 для синхронизации локальных изменений объекта энтити и бд необходимо проводить все измменение в контекст транзакций.
 тра = группа запросов отправляемая на выполн к серверу по принципу все или ничего. либо будут выполнены все запросы,
 либо ни один.
+
+Query и TypeQuery - объекты для выполнения запросов на языке jpql.
+jpql - вариация языка sql определенную в стандарте jpa для напис запросов, не завис от базы данн в кот они будут
+отправлены (одинак для любой бд). jpql работает с сущностями (не табл). в результате только одно значение, от которого
+будет тип результата.
+jpql -> orm -> postgresql dialect -> postgresql
+
+sql -> select * from category
+jpql -> select c from Category(class) c (обязательно аллиас) -> Category.class
+
+sql -> select * from products where price between ? and ?
+jpql -> select p from Product(class) p where p.price(поле) between ? and ? -> Product.class
+
+sql -> update products set price = price *1.1 where category_id = ?
+jpql -> update Product p(obyaz) set p.price = p.price * 1.1 where p.category.id = ?
+
+query - запросы на изменение (update, delete) (insert - persist)
+typedQuery<T> - запросы на выборку данных (select)
